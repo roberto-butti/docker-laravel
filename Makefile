@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := help
 
 BASE_IMAGE=robertobutti/php-8.0-apache:php8.0.0
-LARAVEL_IMAGE=php8.0-laravel
+LARAVEL_IMAGE=robertobutti/laravel:php8.0.0
 HTTP_PORT=8100
 
 help: ## Show this Help
@@ -13,7 +13,7 @@ pull-image: ## Update base image
 
 
 build-image: ## Build docker image
-	docker build . --tag {LARAVEL_IMAGE}
+	docker build . --tag ${LARAVEL_IMAGE}
 
 rebuild-image: pull-image build-image ## Reuild docker image from scratch
 
